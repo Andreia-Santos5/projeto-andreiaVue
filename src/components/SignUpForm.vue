@@ -43,6 +43,7 @@
 
 <script>
 
+
 import firebase from "firebase";
 export default{
   name:"SignupForm",
@@ -88,4 +89,5 @@ li {
 a {
   color: #42b983;
 }
+
 </style>

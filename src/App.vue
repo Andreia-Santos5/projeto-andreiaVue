@@ -3,7 +3,8 @@
     <router-link to="/">Home</router-link> |
     <router-link to="/about">About</router-link> |
     <router-link to="/signin">Sign In</router-link> |
-     <router-link to="/signup">Sign Up</router-link>
+     <router-link to="/signup">Sign Up</router-link> |
+     <router-link to="/contactus">Contact</router-link> |
   </nav>
   <router-view/>
 </template>
@@ -15,11 +16,12 @@
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  
 }
 
 nav {
   padding: 30px;
-  background: #42b983;
+  background: rgba(180, 216, 182, 0.836);
 }
 
 nav a {

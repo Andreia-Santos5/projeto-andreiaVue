@@ -1,7 +1,6 @@
 <template>
   <div class="signin">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <SignInForm msg="Welcome to Your Vue.js App"/>
+    <SignInForm msg=" Sign-in Form"/>
   </div>
 </template>
 
@@ -16,3 +15,5 @@ export default {
   }
 }
 </script>
+
+

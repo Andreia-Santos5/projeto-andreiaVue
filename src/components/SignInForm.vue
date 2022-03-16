@@ -3,7 +3,6 @@
     <h1>{{ msg }}</h1>
     <div class="login-wrap">
       <div class="login-html">
-        <label> Sign In  </label>
         <div class="login-form">
           <br>
           <form class="cmxform" id="signinForm" method="get" action="About.html">  
