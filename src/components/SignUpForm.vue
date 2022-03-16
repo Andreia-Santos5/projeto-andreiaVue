@@ -42,11 +42,33 @@
 </template>
 
 <script>
-export default {
-  name: 'SignUpForm',
-  props: {
-    msg: String
-  }
+
+import firebase from "firebase";
+export default{
+  name:"SignupForm",
+  data(){
+    return {
+      email: "",
+      password:"",
+    }
+  },
+  methods:{
+    signupRequest(){
+      firebase
+      .auth()
+      .createUserWithEmailAndPassword(this.email, this.password)
+      .then(
+        ()=>{
+          this.successMessage="Register Successfully.";
+        },
+        error=> {
+          let errorResponse=JSON.parse(error.message);
+          this.errorMessage=errorResponse.error.message;
+        }
+
+      );
+    },
+  },
 }
 </script>
 
