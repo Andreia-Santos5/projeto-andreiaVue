@@ -1,4 +1,5 @@
 <template>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
   <h2>Contact Us</h2> 
     <br>
     <form class="was-validated" @submit="checkForm" novalidate="true" id= "myform" method="get" action="About.html">
@@ -15,15 +16,11 @@
           <h5>Gender</h5>
           <div class="form-check">
             <input class="form-check-input" type="radio" name="flexRadioDefault" v-model="Gender"  id="female">
-            <label class="form-check-label" for="Female">
-              Female
-            </label>
+            <label class="form-check-label" for="Female">Female</label>
           </div>
           <div class="form-check">
             <input class="form-check-input" type="radio" name="flexRadioDefault" v-model="Gender"  id="Male">
-            <label class="form-check-label" for="Male">
-              Male
-            </label>
+            <label class="form-check-label" for="Male">Male</label>
           </div>
           <br>
           <div class="mb-3">
@@ -63,9 +60,6 @@
             </label>
           </div>
           <br>
-          <label for="customRange3" class="form-label" style="margin-left:  25px;">How satisfied are you with our content? </label>
-          <br>
-          <input type="range" class="form-range" id="foo" v-model="range" style="width:50%; margin-left: 25px;" min="0" max="5" step="1" >
           <br>
           <br>
           <div class="col-12">
@@ -73,11 +67,15 @@
         </div>
   </div>
   </form>
+  <footer>
+  <h5>TropLand, 2022 &copy;</h5>
+  </footer>
 </template>
 <style>
   h3, h4, h5{
 
     margin-left: 15px;
+
     margin-right: 25px;
             
 
@@ -95,8 +93,7 @@
   body{
     margin-left: 25px;
     margin-right: 25px;
-          
-          
+
         
   }
   div{
@@ -104,7 +101,7 @@
     margin-right: 25px;
     padding-top: 20px;
     padding-bottom: 20px;
-    background-color:rgba(180, 216, 182, 0.836);
+    background-color:#eee;
           
   }
 </style>

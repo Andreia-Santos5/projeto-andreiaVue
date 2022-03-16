@@ -1,10 +1,13 @@
 <template>
   <nav>
     <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link> |
+    <router-link to="/about">Tropical Garden</router-link> |
+    <router-link to="/tropicalfruits">Tropical Fruits</router-link> |
+    <router-link to="/recipes">Recipes</router-link> |
     <router-link to="/signin">Sign In</router-link> |
-     <router-link to="/signup">Sign Up</router-link> |
-     <router-link to="/contactus">Contact</router-link> |
+    <router-link to="/signup">Sign Up</router-link> |
+    <router-link to="/contactus">Contact</router-link> |
+
   </nav>
   <router-view/>
 </template>
@@ -14,7 +17,6 @@
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
   
 }
@@ -22,6 +24,7 @@
 nav {
   padding: 30px;
   background: rgba(180, 216, 182, 0.836);
+  text-align: center;
 }
 
 nav a {

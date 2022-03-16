@@ -1,8 +1,10 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/fruits.jpeg">
     <HelloWorld msg="Welcome to Your Vue.js App"/>
   </div>
+  <footer>
+    <h5>TropLand, 2022 &copy;</h5>
+  </footer>
 </template>
 
 <script>
@@ -16,3 +18,10 @@ export default {
   }
 }
 </script>
+<style >
+body{
+background-image: url("/Users/andreiasantos/Projects/projeto-andreiaVue/src/assets/background.jpg");
+background-size:cover;
+backdrop-filter:initial;
+}
+</style>
