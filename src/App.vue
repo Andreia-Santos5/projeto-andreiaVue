@@ -1,11 +1,11 @@
 <template>
 <h1>TropLand</h1>
-  <nav>
+  <nav class="nava">
     <router-link to="/">Home</router-link> |
     <router-link to="/about">Tropical Garden</router-link> |
     <router-link to="/tropicalfruits">Tropical Fruits</router-link> |
     <router-link to="/recipes">Recipes</router-link> |
-    <router-link to="/signinsignup">Sign In/Sign-Up</router-link> |
+    <router-link to="/signinsignup">Sign-in/Sign-up</router-link> |
     <router-link to="/contactus">Contact Us</router-link> |
 
   </nav>
@@ -23,32 +23,45 @@
 }
 
 nav {
-  padding: 30px;
+  
   background: rgba(180, 216, 182, 0.836);
   text-align: center;
+  padding: 30px;
+  margin-top: 20px;
+  margin-left: 1,5%;
+  margin-right: 1,5%;  
 }
+
 
 nav a {
   font-weight: bold;
   color: #2c3e50;
+  text-decoration:none;
 
 }
-nav a.houver {
+.nava a:hover {
+  width: 100%;
+  height: 1px;
   color:cornflowerblue;
 }
 
 nav a.router-link-exact-active {
-  color: #42b983;
+  color: cornflowerblue;
 }
-h1{
+h1, h2{
   text-align: center;
   background-color: #eee;
-  padding: 20px;
+  padding: 30px;
+  margin-top: 20px;
+  margin-left: 1,5%;
+  margin-right: 1,5%;  
+
 }
 body{
   background-image: url("/Users/andreiasantos/Projects/projeto-andreiaVue/src/assets/background.jpg");
   background-size:cover;
   backdrop-filter:initial;
+  
 }
 .footer {
   font-family: 'Quicksand', sans-serif;
@@ -57,15 +70,16 @@ body{
   text-align: center;
   background: #eee;
   margin-top: 20px;
-    
+  margin-left: 1,5%;
+  margin-right: 1,5%;  
     
 }
 .card {
   background-color: #eee;
   padding: 20px;
   margin-top: 20px;
-  margin-left: 20%;
-  margin-right: 20%;
+  margin-left: 15%;
+  margin-right: 15%;
     
 }
 </style>

@@ -39,14 +39,6 @@
 
 </template>
 <style scoped>
-.card {
-    background-color: #eee;
-    padding: 20px;
-    margin-top: 20px;
-    margin-left: 20%;
-    margin-right: 20%;  
-}
-
 .card-img {
     width: "400px";
     width: "400px";

@@ -4,6 +4,7 @@
     <div class="card">
       <h2>Tropical fruit salad </h2>
       <div class="saladfruit"></div>
+      <br>
       <p>Ingredients:</p>
       <p> 1/2 papaia,</p>
       <p> 1/2 pitaya,</p>
@@ -17,6 +18,7 @@
     <div class="card">
       <h2>Orange mousse </h2>
       <div class="crepe"></div>
+      <br>
       <p>Ingredients:</p>
       <p> 1 can of condensed milk,</p>
       <p> 2 packages of cream,</p>
@@ -31,29 +33,29 @@
   </footer>
 </template>
 <style scoped>
-  .img3{
-    background-color: #eee;
-    width: 100%;
-    padding: 100px;
-    background-image: url("/Users/andreiasantos/Projects/projeto-andreiaVue/src/assets/garden.jpg");
-    background-size: cover;
-  }
    .saladfruit {
     background-color: #eee;
-    width: 100%;
-    height:200px;
-    padding: 100px;
     background-image: url("/Users/andreiasantos/Projects/projeto-andreiaVue/src/assets/salada.jpeg");
-    background-size: cover;
-    
+    align-content: center;
+    width:400px;
+    padding: 100px;
+    margin-top: 20px;
+    margin-left: 10%;
+    margin-right: 10%;
+    background-position: center;
+    background-size:cover;
   }
   .crepe {
     background-color: #eee;
-    width: 100%;
-    height:200px;
-    padding: 100px;
     background-image: url("/Users/andreiasantos/Projects/projeto-andreiaVue/src/assets/crepe.jpeg");
-    background-size: cover;
+    align-content: center;
+    width:400px;
+    padding: 100px;
+    margin-top: 20px;
+    margin-left: 10%;
+    margin-right: 10%;
+    background-position: center;
+    background-size:cover;
     
   }
 </style>

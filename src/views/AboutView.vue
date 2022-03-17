@@ -1,9 +1,9 @@
 <template>
-  <div class="about">
+<div class="about">
   <div class="row">
   <div >
     <div class="card">
-      <h2> Did you know Meu Pé de Cacau?  </h2>
+      <h2> Did you know Meu Pé de Cacau? </h2>
       <div class="img2"></div>
       <p>Meu Pé de Cacau is a tropical fruit garden surrounded by imposing cliffs to the northeast and the Atlantic Ocean to the southwest.</p>
       <p>This garden containing hundreds of species of tropical plants and fruits, planted in traditional stone-trimmed poles.</p>
@@ -24,31 +24,32 @@
   </footer>
 </template>
 <style>
-.card {
-    background-color: #eee;
-    padding: 20px;
-    margin-top: 20px;
-    margin-left: 20%;
-    margin-right: 20%;
-    
-  }
   .img2{
     background-color: #eee;
-    width: 100%;
-    height:200px;
-    padding: 100px;
     background-image: url("/Users/andreiasantos/Projects/projeto-andreiaVue/src/assets/meupe.jpg");
-    background-size: cover; 
+    align-content: center;
+    width:400px;
+    padding: 100px;
+    margin-top: 20px;
+    margin-left: 10%;
+    margin-right: 10%;
+    background-position: center;
+    background-size:cover;
+    
 
   }
   .img3{
     background-color: #eee;
-    width: 100%;
-    height:200px;
-    padding: 100px;
     background-image: url("/Users/andreiasantos/Projects/projeto-andreiaVue/src/assets/garden.jpg");
-    background-size: cover;
-  
+    align-content: center;
+    width:400px;
+    padding: 100px;
+    margin-top: 20px;
+    margin-left: 10%;
+    margin-right: 10%;
+    background-position: center;
+    background-size:cover;
+    
   }
 
 </style>
