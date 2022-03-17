@@ -1,6 +1,5 @@
 <template>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-  <h2>Contact Us</h2> 
     <br>
     <form class="was-validated" @submit="checkForm" novalidate="true" id= "myform" method="get" action="About.html">
     <div id="app">
@@ -67,11 +66,8 @@
         </div>
   </div>
   </form>
-  <footer>
-  <h5>TropLand, 2022 &copy;</h5>
-  </footer>
 </template>
-<style>
+<style scoped>
   h3, h4, h5{
 
     margin-left: 15px;
@@ -79,15 +75,6 @@
     margin-right: 25px;
             
 
-  }
-  h2{
-
-    padding: 20px;
-    background-color: #eee;
-    margin-left: 25px;
-    margin-right: 25px;
-    text-align: center;
-          
   }
         
   body{
@@ -101,7 +88,7 @@
     margin-right: 25px;
     padding-top: 20px;
     padding-bottom: 20px;
-    background-color:#eee;
+    background-color:rgba(180, 216, 182, 0.836);
           
   }
 </style>
