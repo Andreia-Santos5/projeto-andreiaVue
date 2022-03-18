@@ -1,5 +1,7 @@
 <template>
 <br>
+  <div id="app">
+  </div>
   <div class="login-wrap">
     <div class="login-html">
       <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Sign In</label>
@@ -40,6 +42,10 @@
 <script>
 import useValidate from "@vuelidate/core";
 import { required, email, minLength} from "@vuelidate/validators";
+// import firebase from "firebase";
+import firebase from 'firebase/app';
+import '@firebase/auth';
+import '@firebase/firestore';
 
 export default {
   name: 'SignInView',
@@ -53,44 +59,32 @@ export default {
       msg:[]
     };
   },
-      validations() {
-      return{
-        email: { required, email },
-        password: { required, minLength: minLength(6) }
-      };
-    },
+      
+  validations() {
+    return{
+      email: { required, email },
+      password: { required, minLength: minLength(6) }
+    };
+  },
   methods: {
     submitSignInForm() {
       this.v$.$validate() // checks all inputs
       if (!this.v$.$error) { // if ANY fail validation
         alert('Form successfully submitted.')
+        this.signinRequest()
       } 
       else {
         alert('Form failed validation')
       }
     },
-  },  
-}
-  
-
-  /*import firebase from "firebase";
-  import vueConfig from 'vue.config';
-  export default{
-  name:"SignupForm",
-    data(){
-      return {
-      email: "",
-      password:"",
-    }
-  },
-  methods:{
-    signupRequest(){
+    signinRequest() {
       firebase
       .auth()
-      .createUserWithEmailAndPassword(this.email, this.password)
+      .signInWithEmailAndPassword(this.email, this.password)
       .then(
         ()=>{
-          this.successMessage="Register Successfully.";
+          this.successMessage="Sign in Successfully.";
+          this.$router.push('Home')
         },
         error=> {
           let errorResponse=JSON.parse(error.message);
@@ -98,9 +92,10 @@ export default {
         }
 
       );
-    },
-  },
-}*/
+    },  
+  }, 
+
+}
 </script>
 
 <style scoped>

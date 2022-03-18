@@ -3,7 +3,7 @@
 <div class="login-wrap">
   <div class="login-html">
       <label for="tab-1" class="tab"></label>
-      <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Sign Up</label>
+      <input id="tab-2" type="radio" name="tab" class="sign-up" checked ><label for="tab-2" class="tab">Sign Up</label>
     <div class="login-form">
     <form class="cmxform" id="signupForm" method="get" action="About.html">
         <div class="sign-up-htm">
@@ -14,17 +14,19 @@
           <div class="group">
               <label for="password" class="label">Password</label>
               <input id="password" type="password" v-model="passwordSignUp" name= "password" minlength="6" class="input"  required>
+              <span v-if="v$.passwordSignUp.$error">{{ v$.passwordSignUp.$errors[0].$message }}</span>
           </div>
           <div class="group">
               <label for="password_confirmation" class="label">Repeat Password</label>
               <input id="password_confirmation" v-model="passwordConfirmation" type="password" name="password_confirmation"  minlength= "6" class="input"   required >
+              <span v-if="v$.passwordConfirmation.$error">{{ v$.passwordConfirmation.$errors[0].$message }}</span>
           </div>
           <div class="group">
               <label for="email" class="label">Email Address</label>
               <input id="email" type="text" v-model="emailSignUp" class="input" name="email" required>
           </div>
           <div class="group">
-              <button @click="submitSignUForm" class="button">Sign-up</button>
+              <button @click="submitSignUpForm" class="button">Sign-up</button>
           </div>
           <div class="hr"></div>
           <div class="foot-lnk">
@@ -39,7 +41,7 @@
 
 <script>
 import useValidate from "@vuelidate/core";
-import {required, email, minLength, sameAs, passwordSignUp} from "@vuelidate/validators";
+import {required, email, minLength, sameAs} from "@vuelidate/validators";
 
 export default {
   name: 'SignUpView',
@@ -59,7 +61,7 @@ export default {
         nameSignUp: {required},
         emailSignUp:{required, email},
         passwordSignUp:{required, minLength: minLength(6)},
-        passwordConfirmation:{required,sameAs: sameAs(passwordSignUp)}
+        passwordConfirmation:{required, minLength: minLength(6), sameAs:sameAs(this.passwordSignUp)}
       };
     },
     methods: {
