@@ -1,9 +1,11 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
-import SignInSignUpView from '../views/SignInSignUpView.vue'
+import SignInView from '../views/SignInView.vue'
+import SignUpView from '../views/SignUpView.vue'
 import ContactusView from '../views/ContactusView.vue'
 import TropicalFruitsView from '../views/TropicalFruitsView.vue'
 import RecipesView from '../views/RecipesView.vue'
+
 
 const routes = [
   {
@@ -20,9 +22,14 @@ const routes = [
     component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
   },
   {
-    path: '/signinsignup',
-    name: 'signinsignup',
-    component: SignInSignUpView
+    path: '/signin',
+    name: 'signin',
+    component: SignInView
+  },
+  {
+    path: '/signup',
+    name: 'signup',
+    component: SignUpView
   },
 
   {

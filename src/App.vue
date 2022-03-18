@@ -5,9 +5,9 @@
     <router-link to="/about">Tropical Garden</router-link> |
     <router-link to="/tropicalfruits">Tropical Fruits</router-link> |
     <router-link to="/recipes">Recipes</router-link> |
-    <router-link to="/signinsignup">Sign-in/Sign-up</router-link> |
+    <router-link to="/signin">Sign-in</router-link> |
+    <router-link to="/signup">Sign-up</router-link> |
     <router-link to="/contactus">Contact Us</router-link> |
-
   </nav>
   <router-view/>
 </template>

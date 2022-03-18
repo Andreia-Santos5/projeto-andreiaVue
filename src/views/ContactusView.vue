@@ -107,6 +107,11 @@
     font-weight:bold;
     font-size:13px;
     display:inline-block;
+
+  }
+  .button:hover{
+    color: cornflowerblue;
+    transform: scale(1.2);
   }
   .footer {
     font-family: 'Quicksand', sans-serif;

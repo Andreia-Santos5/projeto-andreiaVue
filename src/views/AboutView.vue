@@ -13,7 +13,7 @@
       <div class="img3"></div>
       <p>Every Saturday morning we take a guided tour, where we show our tropical garden.</p>
       <p>During the tour, you will be able to taste some fruits, and at the end of the tour you will be able to enjoy our homemade rum and Madeira wine.</p>
-      <p>If you are interested in joining in this tropical experience, you can contact us through our email, and we scheduled the best hour for visit us.</p>
+      <p>If you are interested in joining in this tropical experience, you can contact us and we scheduled the best hour for visit us.</p>
      
     </div>
   </div>

@@ -1,108 +1,78 @@
 <template>
 <br>
-  <div class="login-wrap">
-    <div class="login-html">
-      <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Sign In</label>
+<div class="login-wrap">
+  <div class="login-html">
+      <label for="tab-1" class="tab"></label>
       <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Sign Up</label>
-      <div class="login-form">
-        <form class="cmxform" id="signinForm" method="get" >  
-            <div class="sign-in-htm">
-              <div class="group">
-                <label for="cname" class="label">Email Address</label>
-                <input id="cname" v-model=email name="email" type="tex" class="input" required>
-              </div>
-              <div class="group">
-                <label for="pass" class="label">Password</label>
-                <input id="pass" type="password" name="passaworde" minlength="6" class="input" data-type="password" required>
-              </div>
-              <div class="group">
-                <input id="check" type="checkbox" class="check" checked>
-                <label for="check"><span class="icon"></span> Keep me Signed in</label>
-              </div>
-              <div class="group">
-                <input type="submit" class="button" value="Sign In">
-              </div>
-              <div class="hr"></div>
-              <div class="foot-lnk">
-                <a href="#forgot">Forgot Password?</a>
-              </div>
-            </div>
-        </form>
-        <form class="cmxform" id="signupForm" method="get" action="About.html">
-            <div class="sign-up-htm">
-              <div class="group">
-                <label for="user" class="label">Name</label>
-                <input id="user" name="name2"  type="text" class="input" required>
-              </div>
-              <div class="group">
-                <label for="password" class="label">Password</label>
-                <input id="password" type="password" name= "password" minlength="6" class="input"  data-type= "password" required>
-              </div>
-              <div class="group">
-                <label for="password_confirmation" class="label">Repeat Password</label>
-                <input id="password_confirmation" type="password" name="password_confirmation"  minlength= "6" class="input"   data-type="password" required >
-              </div>
-              <div class="group">
-                <label for="email" class="label">Email Address</label>
-                <input id="email" type="text" class="input" name="email" required>
-              </div>
-             <div class="group">
-                <input type="submit" class="button" value="Sign In">
-              </div>
-              <div class="hr"></div>
-              <div class="foot-lnk">
-                <a href="#forgot">Forgot Password?</a>
-              </div>
-            </div>
-        </form>
-      </div> 
-    </div> 
-  </div>     
-  <footer class="footer">
-  <h5>TropLand, 2022 &copy;</h5>
-  </footer>
+    <div class="login-form">
+    <form class="cmxform" id="signupForm" method="get" action="About.html">
+        <div class="sign-up-htm">
+          <div class="group">
+            <label for="user" class="label">Name</label>
+              <input id="user" name="name2" v-model="nameSignUp" type="text" class="input" required>
+        </div>
+          <div class="group">
+              <label for="password" class="label">Password</label>
+              <input id="password" type="password" v-model="passwordSignUp" name= "password" minlength="6" class="input"  required>
+          </div>
+          <div class="group">
+              <label for="password_confirmation" class="label">Repeat Password</label>
+              <input id="password_confirmation" v-model="passwordConfirmation" type="password" name="password_confirmation"  minlength= "6" class="input"   required >
+          </div>
+          <div class="group">
+              <label for="email" class="label">Email Address</label>
+              <input id="email" type="text" v-model="emailSignUp" class="input" name="email" required>
+          </div>
+          <div class="group">
+              <button @click="submitSignUForm" class="button">Sign-up</button>
+          </div>
+          <div class="hr"></div>
+          <div class="foot-lnk">
+            <a href="#forgot">Forgot Password?</a>
+          </div>
+        </div>
+    </form>
+    </div>
+  </div> 
+</div> 
 </template>
-<script>
-/*const signinForm = new Vue({
-  el: '#signinForm',
-  data: {
-    errors: [],
-    name: null
-  },
-  methods:{
-    checkForm: function () {
-      if (this.name != "") {
-        return true;
-      }
-    }
-  }
-});*/
-import firebase from "firebase";
-export default{
-  name:"SignupForm",
-  data(){
-    return {
-      email: "",
-      password:"",
-    }
-  },
-  methods:{
-    signupRequest(){
-      firebase
-      .auth()
-      .createUserWithEmailAndPassword(this.email, this.password)
-      .then(
-        ()=>{
-          this.successMessage="Register Successfully.";
-        },
-        error=> {
-          let errorResponse=JSON.parse(error.message);
-          this.errorMessage=errorResponse.error.message;
-        }
 
-      );
-    },
+<script>
+import useValidate from "@vuelidate/core";
+import {required, email, minLength, sameAs, passwordSignUp} from "@vuelidate/validators";
+
+export default {
+  name: 'SignUpView',
+  components: {
   },
+  data() {
+    return {
+      v$: useValidate(),
+      nameSignUp:"",
+      emailSignUp:"",
+      passwordSignUp:"",
+      passwordConfirmation:"",
+    };
+  },
+  validations() {
+      return{
+        nameSignUp: {required},
+        emailSignUp:{required, email},
+        passwordSignUp:{required, minLength: minLength(6)},
+        passwordConfirmation:{required,sameAs: sameAs(passwordSignUp)}
+      };
+    },
+    methods: {
+    submitSignUpForm() {
+      this.v$.$validate() // checks all inputs
+      if (!this.v$.$error) { // if ANY fail validation
+        alert('Form successfully submitted.')
+      } 
+      else {
+        alert('Form failed validation')
+      } 
+    },
+ }
 }
 </script>
 
@@ -251,4 +221,3 @@ export default{
     text-align:center;
   }
 </style>
-
