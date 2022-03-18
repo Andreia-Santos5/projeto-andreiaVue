@@ -5,20 +5,22 @@
       <h3> Personal Data </h3>
       <div class="group">
             <label for="cname" class="label">Name</label>
-            <input id="cname" v-model=name name="name" placeholder="Name" type="text" class="input" required>
+            <input id="cname" v-model="name" name="name" placeholder="Name" type="text" class="input" required>
+             <span v-if="v$.name.$error"> {{ v$.name.$errors[0].$message }}</span>
             </div>
             <div class="group">
             <label for="email" class="label">Email</label>
-            <input id="email" type="email" name="email" placeholder="Email" class="input" data-type="email" required>
+            <input id="email" v-model="email" type="email" name="email" placeholder="Email" class="input" data-type="email" required>
+             <span v-if="v$.email.$error"> {{ v$.email.$errors[0].$message }}</span>
       </div>
         <br>
         <h3>Gender</h3>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" v-model="Gender"  id="female">
+            <input class="form-check-input" v-model="gender" type="radio" name="flexRadioDefault"  id="female">
             <label class="form-check-label" for="Female">Female</label>
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" v-model="Gender"  id="Male">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" v-model="gender"  id="Male">
             <label class="form-check-label" for="Male">Male</label>
           </div>
           <br>
@@ -26,7 +28,8 @@
             <label for="FormControlTextarea" class="form-label">From where did you hear about us?</label>
             <br>
             <br>
-            <textarea class="form-control" placeholder="Write your text here" id="FormControlTextarea" rows="3" required></textarea>
+            <textarea class="form-control" v-model="hear" placeholder="Write your text here" id="FormControlTextarea" rows="3" required></textarea>
+            <span v-if="v$.hear.$error"> {{ v$.hear.$errors[0].$message }}</span>
           </div>
           <br>
          <h3>Which of our contents are you interested in?</h3>
@@ -53,11 +56,13 @@
             <label for="FormControlTextarea" class="form-label">Your message</label>
             <br>
             <br>
-            <textarea class="form-control" placeholder="Write your text here" id="FormControlTextarea" rows="3" required></textarea>
+            <textarea class="form-control" v-model="message" placeholder="Write your text here" id="FormControlTextarea" rows="3" required></textarea>
+             <span v-if="v$.message.$error"> {{ v$.message.$errors[0].$message }}</span>
           </div>
           <br>
           <div class="form-check">
-            <input class="form-check-input" type="checkbox" name="flexRadioDefault" id="Agree" required>
+            <input class="form-check-input" v-model= "agree" type="checkbox" name="flexRadioDefault" id="Agree" required>
+             <span v-if="v$.agree.$error"> {{ v$.agree.$errors[0].$message }}</span>
             <label class="form-check-label" for="Agree">
               Agree to Terms and Conditions
             </label>
@@ -66,7 +71,7 @@
           <br>
           <br>
           <div >
-          <button class="button" type="button" id="submit" style="margin-left: 25px;">Submit</button>
+           <button class="button" @click="submitForm" type="button" id="submit" style="margin-left: 25px;">Submit</button>
         </div>
   </div>
   </form>
@@ -75,7 +80,50 @@
   </footer>
 </template>
 
+<script>
+import useValidate from "@vuelidate/core";
+import { required, email} from "@vuelidate/validators";
 
+
+
+export default {
+  name: 'ContactusView',
+  components: {
+  },
+  data() {
+    return {
+      v$: useValidate(),
+      name:"",
+      email:"",
+      gender:"",
+      hear:"",
+      message:"",
+      agree:"",
+      msg:[]
+    };
+  },
+      
+  validations() {
+    return{
+      name: { required },
+      email:{ required, email},
+      hear:{required},
+      message:{required},
+      agree:{required}
+    };
+  },
+  methods: {
+    submitForm() {
+      this.v$.$validate() // checks all inputs
+      if (!this.v$.$error) { // if ANY fail validation
+        alert('Form successfully submitted.')
+      } 
+      else {
+        alert('Form failed validation')
+      }
+    },
+} }
+</script>
 
 
 <style scoped>

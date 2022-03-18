@@ -18,7 +18,8 @@
     "popper.js": "^1.16.1",
     "vue": "^3.2.13",
     "vue-router": "^4.0.3",
-    "vuelidate": "^0.7.7"
+    "vuelidate": "^0.7.7",
+    "vuelidate-messages": "^0.1.2"
   },
   "devDependencies": {
     "@babel/core": "^7.12.16",
