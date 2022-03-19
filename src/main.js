@@ -4,12 +4,11 @@ import router from './router'
 
 //Import the functions you need from the SDKs you need
 
-// import { initializeApp } from "firebase/app"
+// import { initializeApp } from "firebase"
+
 import firebase from 'firebase/app';
-// import firebase from "firebase";
 
 // Import the functions you need from the SDKs you need
-
 
 // TODO: Add SDKs for Firebase products that you want to use
 
@@ -42,12 +41,13 @@ const firebaseConfig = {
 // Initialize Firebase
 
 const app = firebase.initializeApp(firebaseConfig);
+export default { app }
+
+createApp(App).use(router).mount('#app')
 
 /*const db = firebase.firestore()
 const auth = firebase.auth()
 
 export { db, auth }*/
 
-export default { app }
-
-createApp(App).use(router).mount('#app')
+// export default { app }

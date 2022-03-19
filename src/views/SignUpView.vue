@@ -1,47 +1,43 @@
 <template>
 <br>
-<div class="login-wrap">
-  <div class="login-html">
-      <label for="tab-1" class="tab"></label>
-      <input id="tab-2" type="radio" name="tab" class="sign-up" checked ><label for="tab-2" class="tab">Sign Up</label>
-    <div class="login-form">
-    <form class="cmxform" id="signupForm" method="get" action="About.html">
-        <div class="sign-up-htm">
-          <div class="group">
-            <label for="user" class="label">Name</label>
-              <input id="user" name="name2" v-model="nameSignUp" type="text" class="input" required>
-        </div>
-          <div class="group">
-              <label for="password" class="label">Password</label>
-              <input id="password" type="password" v-model="passwordSignUp" name= "password" minlength="6" class="input"  required>
-              <span v-if="v$.passwordSignUp.$error">{{ v$.passwordSignUp.$errors[0].$message }}</span>
-          </div>
-          <div class="group">
-              <label for="password_confirmation" class="label">Repeat Password</label>
-              <input id="password_confirmation" v-model="passwordConfirmation" type="password" name="password_confirmation"  minlength= "6" class="input"   required >
-              <span v-if="v$.passwordConfirmation.$error">{{ v$.passwordConfirmation.$errors[0].$message }}</span>
-          </div>
-          <div class="group">
-              <label for="email" class="label">Email Address</label>
-              <input id="email" type="text" v-model="emailSignUp" class="input" name="email" required>
-          </div>
-          <div class="group">
-              <button @click="submitSignUpForm" class="button">Sign-up</button>
-          </div>
-          <div class="hr"></div>
-          <div class="foot-lnk">
-            <a href="#forgot">Forgot Password?</a>
-          </div>
-        </div>
-    </form>
-    </div>
-  </div> 
-</div> 
+<br>
+<div class="formstyle">
+  <form class="login">
+    <label> Sign-up form </label>
+    <br>
+    <br>
+    <label> Email </label>
+    <br>
+    <input class="formcontrol" type="text" placeholder="email" v-model="email">
+    <span v-if="v$.email.$error">{{ v$.email.$errors[0].$message }}</span>
+    <br>
+    <br>
+    <label> Password </label>
+    <br>
+    <input class="formcontrol" type="password" placeholder="password" v-model="password">
+    <span v-if="v$.password.$error">{{ v$.password.$errors[0].$message }}</span>
+    <br>
+    <br>
+    <label> Password confirmation </label>
+    <br>
+    <input class="formcontrol" type="password" placeholder="password" v-model="passwordConfirm">
+    <span v-if="v$.passwordConfirm.$error">{{ v$.passwordConfirm.$errors[0].$message }}</span>
+    <br>
+    <br>
+    <button class="button" @click="submitSignUpForm()">Sign-up</button>
+  </form>
+</div>
+<br>
+<br>
+<footer class="footer">
+  <h5>TropLand, 2022 &copy;</h5>
+  </footer>
 </template>
 
 <script>
 import useValidate from "@vuelidate/core";
 import {required, email, minLength, sameAs} from "@vuelidate/validators";
+import firebase from 'firebase';
 
 export default {
   name: 'SignUpView',
@@ -50,176 +46,84 @@ export default {
   data() {
     return {
       v$: useValidate(),
-      nameSignUp:"",
-      emailSignUp:"",
-      passwordSignUp:"",
-      passwordConfirmation:"",
+      email: "",
+      password: "",
+      passwordConfirm:""
     };
   },
   validations() {
       return{
-        nameSignUp: {required},
-        emailSignUp:{required, email},
-        passwordSignUp:{required, minLength: minLength(6)},
-        passwordConfirmation:{required, minLength: minLength(6), sameAs:sameAs(this.passwordSignUp)}
+        email:{required, email},
+        password:{required, minLength: minLength(6)},
+        passwordConfirm:{required, minLength: minLength(6), sameAs:sameAs(this.password)}
       };
     },
-    methods: {
+  methods: {
     submitSignUpForm() {
       this.v$.$validate() // checks all inputs
       if (!this.v$.$error) { // if ANY fail validation
         alert('Form successfully submitted.')
+        this.signupRequest();
       } 
       else {
         alert('Form failed validation')
       } 
     },
- }
+    signupRequest() {
+      firebase.auth().createUserWithEmailAndPassword(this.email, this.password)
+        .then(() => {
+          this.successMessage="Sign up Successfully.";
+          this.$router.push('/')
+        })
+        .catch((error) => {
+          let errorResponse=JSON.parse(error.message);
+          this.errorMessage=errorResponse.error.message;
+        });
+    },
+  },
 }
 </script>
 
+
 <style scoped>
-  *,:after,:before{box-sizing:border-box}
-  .clearfix:after,.clearfix:before{content:'';display:table}
-  .clearfix:after{clear:both;display:block}
-  a{color:inherit;text-decoration:none}
 
-  .login-wrap {
-    width:100%;
-    margin:auto;
-    max-width:525px;
-    min-height:670px;
-    position:relative;
-    box-shadow:0 12px 15px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.19);
-  }
+.formstyle{
+  background-color: rgba(180, 216, 182, 0.836);
+  font-family: Quicksand;
+  width:100%;
+  height: 100%;
+  margin:auto;
+  max-width:525px;
+  min-height:530px;
+  position:relative;
+  box-shadow:0 12px 15px 0;
+  padding:30px;
+  padding-top: 40px;
+  font-size:18px;
+  padding-bottom:5px;
+  border-bottom:2px solid transparent;
+ 
+}
+.button:hover{
+  color: cornflowerblue;
+}
+.button{
+  background-color:#eee;
+  color: #2c3e50;
+  border:1px solid #25692A;
+  border-radius:4px;
+  padding:6px 10px;
+  font-weight:bold;
+  font-size:13px;
+  display:inline-block;
 
-  .login-html{
-    width:100%;
-    height:100%;
-    position:absolute;
-    padding:90px 70px 50px 70px;
-    background:rgba(180, 216, 182, 0.911);
-  }
-  .login-html .sign-in-htm,
-  .login-html .sign-up-htm{
-    top:0;
-    left:0;
-    right:0;
-    bottom:0;
-    position:absolute;
-    transform:rotateY(180deg);
-    backface-visibility:hidden;
-    transition:all .4s linear;
-  }
-  .login-html .sign-in,
-  .login-html .sign-up,
-  .login-form .group .check{
-    display:none;
-  }
-  .login-html .tab,
-  .login-form .group .label,
-  .login-form .group .button{
-    text-transform:uppercase;
-  }
-  .login-html .tab{
-    font-size:22px;
-    margin-right:15px;
-    padding-bottom:5px;
-    margin:0 15px 10px 0;
-    display:inline-block;
-    border-bottom:2px solid transparent;
-  }
-  .login-html .sign-in:checked + .tab,
-  .login-html .sign-up:checked + .tab{
-    color:#fff;
-    border-color:#6fa151;
-  }
-  .login-form{
-    min-height:345px;
-    position:relative;
-    perspective:1000px;
-    transform-style:preserve-3d;
-  }
-  .login-form .group{
-    margin-bottom:15px;
-  }
-  .login-form .group .label,
-  .login-form .group .input,
-  .login-form .group .button{
-    width:100%;
-    color:black(21, 88, 21, 0.226);
-    display:block;
-  }
-  .login-form .group .input,
-  .login-form .group .button{
-    border:none;
-    padding:15px 20px;
-    border-radius:25px;
-    background:rgba(255,255,255,.1);
-  }
-  .login-form .group input[data-type="password"]{
-    -webkit-text-security:circle;
-  }
-  .login-form .group .label{
-    color:black;
-    font-size:12px;
-  }
-  .login-form .group .button{
-    background:floralwhite;
-  }
-  .login-form .group label .icon{
-    width:15px;
-    height:15px;
-    border-radius:2px;
-    position:relative;
-    display:inline-block;
-    background:rgba(255,255,255,.1);
-  }
-  .login-form .group label .icon:before,
-  .login-form .group label .icon:after{
-    content:'';
-    width:10px;
-    height:2px;
-    background:#fff;
-    position:absolute;
-    transition:all .2s ease-in-out 0s;
-  }
-  .login-form .group label .icon:before{
-    left:3px;
-    width:5px;
-    bottom:6px;
-    transform:scale(0) rotate(0);
-  }
-  .login-form .group label .icon:after{
-    top:6px;
-    right:0;
-    transform:scale(0) rotate(0);
-  }
-  .login-form .group .check:checked + label{
-    color:black;
-  }
-  .login-form .group .check:checked + label .icon{
-    background:#1161ee;
-  }
-  .login-form .group .check:checked + label .icon:before{
-    transform:scale(1) rotate(45deg);
-  }
-  .login-form .group .check:checked + label .icon:after{
-    transform:scale(1) rotate(-45deg);
-  }
-  .login-html .sign-in:checked + .tab + .sign-up + .tab + .login-form .sign-in-htm{
-    transform:rotate(0);
-  }
-  .login-html .sign-up:checked + .tab + .login-form .sign-up-htm{
-    transform:rotate(0);
-  }
+}
+.formcontrol{
+  border:none;
+  padding:15px 20px;
+  border-radius:25px;
+  background:rgba(255,255,255,.1);
+  width: 300px;
+}
 
-  .hr{
-    height:2px;
-    margin:60px 0 50px 0;
-    background:rgba(255,255,255,.2);
-  }
-  .foot-lnk{
-    text-align:center;
-  }
 </style>
