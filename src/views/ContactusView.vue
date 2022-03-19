@@ -4,66 +4,66 @@
     <div id="app">
       <h3> Personal Data </h3>
       <div class="group">
-            <label for="cname" class="label">Name</label>
-            <input id="cname" v-model="name" name="name" placeholder="Name" type="text" class="input" required>
+            <label>Name</label>
+            <input  v-model="name"  placeholder="Name" type="text" class="input" required>
              <span v-if="v$.name.$error"> {{ v$.name.$errors[0].$message }}</span>
             </div>
             <div class="group">
-            <label for="email" class="label">Email</label>
-            <input id="email" v-model="email" type="email" name="email" placeholder="Email" class="input" data-type="email" required>
+            <label>Email</label>
+            <input v-model="email" type="email"  placeholder="Email" class="input"  required>
              <span v-if="v$.email.$error"> {{ v$.email.$errors[0].$message }}</span>
       </div>
         <br>
         <h3>Gender</h3>
-          <div class="form-check">
-            <input class="form-check-input" v-model="gender" type="radio" name="flexRadioDefault"  id="female">
-            <label class="form-check-label" for="Female">Female</label>
+          <div>
+            <input v-model="gender" type="radio" >
+            <label>Female</label>
           </div>
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" v-model="gender"  id="Male">
-            <label class="form-check-label" for="Male">Male</label>
+          <div >
+            <input  type="radio"  v-model="gender" >
+            <label>Male</label>
           </div>
           <br>
-          <div class="mb-3">
-            <label for="FormControlTextarea" class="form-label">From where did you hear about us?</label>
+          <div>
+            <label>From where did you hear about us?</label>
             <br>
             <br>
-            <textarea class="form-control" v-model="hear" placeholder="Write your text here" id="FormControlTextarea" rows="3" required></textarea>
+            <textarea class="form-control" v-model="hear" placeholder="Write your text here" required></textarea>
             <span v-if="v$.hear.$error"> {{ v$.hear.$errors[0].$message }}</span>
           </div>
           <br>
          <h3>Which of our contents are you interested in?</h3>
           <div class="form-check">
-            <input class="form-check-input" type="checkbox" name="flexRadioDefault"  id="OnlineTests" >
-            <label class="form-check-label" for="OnlineTests">
+            <input type="checkbox"   >
+            <label >
               Recipes
             </label>
           </div>
-          <div class="form-check" >
-            <input class="form-check-input" type="checkbox" name="flexRadioDefault" id=" PaperBasedTests" >
-            <label class="form-check-label" for="Paper Based Tests">
+          <div  >
+            <input type="checkbox" >
+            <label  >
               Tropical Fruits
             </label>
           </div>
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" name="flexRadioDefault"   id="CustomizedTests" >
-            <label class="form-check-label" for="Customized Tests">
+          <div>
+            <input type="checkbox" >
+            <label  >
               Tropical Garden
             </label>
           </div>
           <br>
-          <div class="mb-3">
-            <label for="FormControlTextarea" class="form-label">Your message</label>
+          <div>
+            <label >Your message</label>
             <br>
             <br>
-            <textarea class="form-control" v-model="message" placeholder="Write your text here" id="FormControlTextarea" rows="3" required></textarea>
+            <textarea class="form-control" v-model="message" placeholder="Write your text here" required></textarea>
              <span v-if="v$.message.$error"> {{ v$.message.$errors[0].$message }}</span>
           </div>
           <br>
-          <div class="form-check">
-            <input class="form-check-input" v-model= "agree" type="checkbox" name="flexRadioDefault" id="Agree" required>
+          <div >
+            <input  v-model= "agree" type="checkbox"  id="Agree" required>
              <span v-if="v$.agree.$error"> {{ v$.agree.$errors[0].$message }}</span>
-            <label class="form-check-label" for="Agree">
+            <label >
               Agree to Terms and Conditions
             </label>
           </div>
@@ -189,6 +189,4 @@ export default {
     width: 300px;
   }
   
-  
-
 </style>
