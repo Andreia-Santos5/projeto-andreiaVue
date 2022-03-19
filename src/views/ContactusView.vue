@@ -117,6 +117,7 @@ export default {
       this.v$.$validate() // checks all inputs
       if (!this.v$.$error) { // if ANY fail validation
         alert('Form successfully submitted.')
+        this.$router.push('/')
       } 
       else {
         alert('Form failed validation')

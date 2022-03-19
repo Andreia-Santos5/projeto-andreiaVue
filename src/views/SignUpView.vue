@@ -64,6 +64,7 @@ export default {
       if (!this.v$.$error) { // if ANY fail validation
         alert('Form successfully submitted.')
         this.signupRequest();
+        this.$router.push('/')
       } 
       else {
         alert('Form failed validation')
@@ -73,7 +74,6 @@ export default {
       firebase.auth().createUserWithEmailAndPassword(this.email, this.password)
         .then(() => {
           this.successMessage="Sign up Successfully.";
-          this.$router.push('/')
         })
         .catch((error) => {
           let errorResponse=JSON.parse(error.message);

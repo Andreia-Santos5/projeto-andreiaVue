@@ -5,7 +5,7 @@ import SignUpView from '../views/SignUpView.vue'
 import ContactusView from '../views/ContactusView.vue'
 import TropicalFruitsView from '../views/TropicalFruitsView.vue'
 import RecipesView from '../views/RecipesView.vue'
-import SignUpTestView from '../views/SignUpView.vue'
+import AdminView from '../views/AdminView.vue'
 
 const routes = [
   {
@@ -48,9 +48,9 @@ const routes = [
     component: RecipesView
   },
   {
-    path: '/signUpTest',
-    name: 'signUpTest',
-    component: SignUpTestView
+    path: '/manage',
+    name: 'manage',
+    component: AdminView
   },
 
 ]

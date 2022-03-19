@@ -1,5 +1,5 @@
 <template>
-  <div class="recipes">
+  <div>
   <div >
     <div class="card">
       <h2>Tropical fruit salad </h2>
@@ -61,5 +61,8 @@
   #pBold {
     font-weight: bold;
 
+  }
+  p{
+    text-align: center;
   }
 </style>
