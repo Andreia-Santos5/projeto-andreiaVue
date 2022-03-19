@@ -23,8 +23,8 @@
 </div>
 <br>
 <br>
-<footer class="footer">
-  <h5>TropLand, 2022 &copy;</h5>
+  <footer class="footer">
+    <h5>TropLand, 2022 &copy;</h5>
   </footer>
 </template>
 

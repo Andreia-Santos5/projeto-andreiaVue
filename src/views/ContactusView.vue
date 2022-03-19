@@ -1,16 +1,16 @@
 <template>
     <br>
-    <form class="was-validated" @submit="checkForm" novalidate="true" id= "myform" method="get" action="About.html">
+    <form @submit="checkForm" novalidate="true" method="get">
     <div id="app">
       <h3> Personal Data </h3>
       <div class="group">
             <label>Name</label>
-            <input  v-model="name"  placeholder="Name" type="text" class="input" required>
+            <input  v-model="name"  placeholder="name" type="text" class="input" required>
              <span v-if="v$.name.$error"> {{ v$.name.$errors[0].$message }}</span>
             </div>
             <div class="group">
             <label>Email</label>
-            <input v-model="email" type="email"  placeholder="Email" class="input"  required>
+            <input v-model="email" type="email"  placeholder="email" class="input"  required>
              <span v-if="v$.email.$error"> {{ v$.email.$errors[0].$message }}</span>
       </div>
         <br>
@@ -28,7 +28,7 @@
             <label>From where did you hear about us?</label>
             <br>
             <br>
-            <textarea class="form-control" v-model="hear" placeholder="Write your text here" required></textarea>
+            <textarea class="form-control" v-model="hear" placeholder="write your text here" required></textarea>
             <span v-if="v$.hear.$error"> {{ v$.hear.$errors[0].$message }}</span>
           </div>
           <br>
@@ -56,7 +56,7 @@
             <label >Your message</label>
             <br>
             <br>
-            <textarea class="form-control" v-model="message" placeholder="Write your text here" required></textarea>
+            <textarea class="form-control" v-model="message" placeholder="write your text here" required></textarea>
              <span v-if="v$.message.$error"> {{ v$.message.$errors[0].$message }}</span>
           </div>
           <br>
@@ -76,7 +76,7 @@
   </div>
   </form>
   <footer class="footer">
-  <h5>TropLand, 2022 &copy;</h5>
+    <h5>TropLand, 2022 &copy;</h5>
   </footer>
 </template>
 
