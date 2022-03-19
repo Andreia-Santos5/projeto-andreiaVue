@@ -18,7 +18,7 @@
     <br>
     <br>
     <label> Image </label>
-    <input type="file"  placeholder="upload your image here">
+    <input class="inputstyle" type="file" >
     <br>
     <br>
     <br>
@@ -59,9 +59,8 @@ export default {
     submitRecipe() {
       this.v$.$validate() // checks all inputs
       if (!this.v$.$error) { // if ANY fail validation
-        alert('Recipe successfully submitted.')
-        this.signinRequest();
-        this.$router.push('/')
+        alert('Recipe successfully submitted')
+        this.$router.push('/recipes')
       } 
       else {
         alert('Recipe failed validation')
@@ -95,13 +94,26 @@ export default {
     background-color:#eee;
     color: #2c3e50;
     border:1px solid #25692A;
-    border-radius:4px;
+    border-radius:25px;
     padding:6px 10px;
     font-weight:bold;
     font-size:13px;
     display:inline-block;
   
   } 
+  .inputstyle{
+    background-color:#eee;
+    color: #2c3e50;
+    border:1px solid #25692A;
+    border-radius:25px;
+    font-weight:bold;
+    font-size:13px;
+    display:inline-block;
+    padding: 10px;
+  }
+  .inputstyle:hover{
+    color: cornflowerblue;
+  }
 
 
 </style>
