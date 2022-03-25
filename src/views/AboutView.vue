@@ -31,8 +31,8 @@
     width:400px;
     padding: 100px;
     margin-top: 20px;
-    margin-left: 10%;
-    margin-right: 10%;
+    margin-left: 22%;
+    margin-right: 22%;
     background-position: center;
     background-size:cover;
     
@@ -45,8 +45,8 @@
     width:400px;
     padding: 100px;
     margin-top: 20px;
-    margin-left: 10%;
-    margin-right: 10%;
+    margin-left: 22%;
+    margin-right: 22%;
     background-position: center;
     background-size:cover;
     

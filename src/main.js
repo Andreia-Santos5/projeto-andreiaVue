@@ -41,7 +41,8 @@ const firebaseConfig = {
 // Initialize Firebase
 
 const app = firebase.initializeApp(firebaseConfig);
-export default { app }
+let db = app.database()
+export default { db, app }
 
 createApp(App).use(router).mount('#app')
 

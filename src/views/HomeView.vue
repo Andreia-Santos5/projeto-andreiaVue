@@ -7,6 +7,11 @@
       <p>TropLand, Tropical Fruits on a Tropical Island.</p>
       <p>Living in Madeira Island, and as we have  a tropical garden, we thought, why not create a web page to share our tropical fruits and share with you some recipes with them?</p>
       <p>So, on this website, we show you our tropical Garden, located in Paul Do Mar (Meu pé de Cacau). You could see our fruits and the diversity of recipes that we usually do with our fruits.</p>
+       <tbody>
+        <tr v-for="recipe in recipes">
+          <td><a v-bind:href="title">{{recipe.title}}</a></td>
+        </tr>
+      </tbody>
   </div>
   <footer class="footer">
     <h5>TropLand, 2022 &copy;</h5>
@@ -23,6 +28,9 @@ export default {
     HelloWorld
   }
 }
+
+let recipes = db.ref('projetoandreia-24413-default-rtdb')
+
 </script>
 <style >
  .img1{
@@ -31,8 +39,8 @@ export default {
     height: 150px;
     padding: 100px;
     margin-top: 20px;
-    margin-left: 10%;
-    margin-right: 10%;
+    margin-left: 22%;
+    margin-right: 22%;
     background-position: center;
     background-size:cover;
   

@@ -26,6 +26,9 @@
     <br>
     <button class="button" @click="submitSignUpForm()">Sign-up</button>
   </form>
+  <br>
+  <br>
+  <p class="pstyle"> <router-link to= "/signin">Already Member?</router-link> </p>
 </div>
 <br>
 <br>
@@ -52,12 +55,12 @@ export default {
     };
   },
   validations() {
-      return{
-        email:{required, email},
-        password:{required, minLength: minLength(6)},
-        passwordConfirm:{required, minLength: minLength(6), sameAs:sameAs(this.password)}
-      };
-    },
+    return{
+      email:{required, email},
+      password:{required, minLength: minLength(6)},
+      passwordConfirm:{required, minLength: minLength(6), sameAs:sameAs(this.password)}
+    };
+  },
   methods: {
     submitSignUpForm() {
       this.v$.$validate() // checks all inputs
@@ -124,5 +127,9 @@ export default {
   border-radius:25px;
   background:rgba(255,255,255,.1);
   width: 300px;
+}
+.pstyle{
+  text-align: center;
+  font-size: 14px;
 }
 </style>

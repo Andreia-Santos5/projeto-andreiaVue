@@ -20,6 +20,9 @@
     <br>
     <button class="button" @click="submitSignInForm()">Sign-in</button>
   </form>
+  <br>
+  <br>
+  <p class="pstyle"> <router-link to= "/signup">Not a member yet?</router-link> </p>
 </div>
 <br>
 <br>
@@ -117,5 +120,8 @@ export default {
   background:rgba(255,255,255,.1);
   width: 300px;
 }
-
+.pstyle{
+  text-align: center;
+  font-size: 14px;
+}
 </style>

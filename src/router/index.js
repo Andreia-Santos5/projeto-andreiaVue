@@ -6,6 +6,7 @@ import ContactusView from '../views/ContactusView.vue'
 import TropicalFruitsView from '../views/TropicalFruitsView.vue'
 import RecipesView from '../views/RecipesView.vue'
 import AdminView from '../views/AdminView.vue'
+import PathNotFound from '../views/404View.vue'
 
 const routes = [
   {
@@ -51,6 +52,10 @@ const routes = [
     path: '/manage',
     name: 'manage',
     component: AdminView
+  },
+  {
+    path: '/:pathMatch(.)',
+    component: PathNotFound
   },
 
 ]
