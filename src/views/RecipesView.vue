@@ -1,68 +1,57 @@
 <template>
   <div>
-  <div >
     <div class="card">
-      <h2>Tropical fruit salad </h2>
-      <div class="saladfruit"></div>
-      <br>
-      <p id="pBold">Ingredients:</p>
-      <p> 1/2 papaia,</p>
-      <p> 1/2 pitaya,</p>
-      <p> 2 pieces of starFruit,</p>
-      <p> 3 pieces of goiaba,</p>
-      <p> 1 mango,</p>
-      <p> 2 pieces of Ciriguela,</p>
-      <p> Handfuul of brazil cherry.</p>
-
+      <h1>Recipes</h1>
     </div>
     <div class="card">
-      <h2>Orange mousse </h2>
-      <div class="crepe"></div>
-      <br>
-      <p id="pBold">Ingredients:</p>
-      <p> 1 can of condensed milk,</p>
-      <p> 2 packages of cream,</p>
-      <p> 1 orange juice,</p>
-      <p> 1 grated orange,</p>
-      <p> 5 sheets of gelatin.</p>
-    </div>
+      <div v-for="recipe in recipes" :key="recipe.title" class="recipe">
+        <h3>{{ recipe.title }}</h3>
+        <br>
+        <p class="pBold"> Ingredients:</p>
+        <p> {{ recipe.ingredients}} </p>
+        <br>
+        <p class="pBold"> Description:</p>
+        <p> {{ recipe.recipeText }}</p>
+        <br>
+        <br>
+      </div>
   </div>
 </div>
 <footer class="footer">
   <h5>TropLand, 2022 &copy;</h5>
 </footer>
 </template>
-<style scoped>
-   .saladfruit {
-    background-color: #eee;
-    background-image: url("/Users/andreiasantos/Projects/projeto-andreiaVue/src/assets/salada.jpeg");
-    width:400px;
-    height: 150px;
-    padding: 100px;
-    margin-top: 20px;
-    margin-left: 22%;
-    margin-right: 22%;
-    background-position: center;
-    background-size:cover;
-  }
-  .crepe {
-    background-color: #eee;
-    background-image: url("/Users/andreiasantos/Projects/projeto-andreiaVue/src/assets/crepe.jpeg");
-    width:400px;
-    height: 150px;
-    padding: 100px;
-    margin-top: 20px;
-    margin-left: 22%;
-    margin-right: 22%;
-    background-position: center;
-    background-size:cover;
-    
-  }
-  #pBold {
-    font-weight: bold;
 
-  }
-  p{
+<script>
+import axios from "axios";
+
+export default {
+  name: 'RecipesView',
+  components: {
+   
+  },
+  data() {
+    return {
+     recipes: "",
+    };
+  },
+  mounted() {
+    axios
+      .get("https://projetoandreia-24413-default-rtdb.firebaseio.com/.json")
+      .then(res => {
+        console.log(res.data)
+        this.recipes = res.data
+      });    
+  },
+}
+</script>
+
+<style scoped>
+  .recipe{
     text-align: center;
+  }
+  .pBold{
+    font-weight: bold;
+    color: darkgreen;
   }
 </style>

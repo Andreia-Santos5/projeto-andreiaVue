@@ -9,14 +9,16 @@
     <input class= "form-control" type="text" v-model="title" placeholder="title" required> 
     <br>
     <br>
+    <label> Ingredients </label>
+    <br>
+    <br>
+    <textarea class="form-control" v-model="ingredients" placeholder="write your text here" required></textarea>
+    <br>
+    <br>
     <label> Description </label>
     <br>
     <br>
-    <textarea class="form-control" v-model="recipeText" placeholder="write your text here" required></textarea>
-    <br>
-    <br>
-    <label> Image </label>
-    <input class="inputstyle" type="file">
+    <textarea class="form-control" v-model="recipeText" placeholder="write your text here"></textarea>
     <br>
     <br>
     <br>
@@ -42,28 +44,29 @@ export default{
   data() {
     return {
      title:"",
+     ingredients:"",
      recipeText:"",
     };
   },
   methods:{
-    save(){
+    save() {
       axios
       .post ("https://projetoandreia-24413-default-rtdb.firebaseio.com/.json", {
         title: this.title,
+        ingredients: this.ingredients,
         recipeText: this.recipeText
       })
       .then((response) => (
-        // this.articleId = response.data.id,
-        // console.log("res"+ this.articleId()))
         console.log("res" + response)
         )
       );
+      this.$router.push('/recipes')
     },
-    async created(){
+    /*async created(){
       const response=await axios.get("https://projetoandreia-24413-default-rtdb.firebaseio.com/.json",
       this.recipeText=response.data);
       this.$router.push('/')
-    },
+    },*/
   },
 }
 </script>
@@ -116,48 +119,3 @@ export default{
 
 </style>
 
-<!--<template>
-  <div>
-    <form>
-      <label> Title </label>
-      <br>
-      <input class="form-control" type="text" v-model="title" placeholder="title" required>
-      <label> Description </label>
-      <br>
-      <input class="form-control" type="text" v-model="recipeText" placeholder="recipeText" required>
-      <br>
-      <button class="button" @click="save()" type="submit" id="submit">Save</button>
-    </form>
-  </div>
-</template>
-
-<script>
-import axios from "axios";
-
-export default {
-  name:"get-request-async-await",
-  components: {
-  },
-  data() {
-    return {
-      title: "",
-      recipeText: "",
-    };
-  },
-  methods: {
-    save() {
-      axios.post('https://projetoandreia-24413-default-rtdb.firebaseio.com/.json', {
-        title: this.title,
-        recipeText: this.recipeText
-      })      
-      .then((response) => (
-        console.log("res" + response)
-      ));
-    },
-    async created() {
-      const response=await axios.get("https://projetoandreia-24413-default-rtdb.firebaseio.com/.json",
-      this.recipeText=response.data);
-    },
-  },
-}
-</script>-->

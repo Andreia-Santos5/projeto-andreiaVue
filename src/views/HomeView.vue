@@ -3,15 +3,10 @@
     <HelloWorld msg="Welcome to our land"/>
     <div class="img1"></div>
   </div>
-    <div class="card">
-      <p>TropLand, Tropical Fruits on a Tropical Island.</p>
-      <p>Living in Madeira Island, and as we have  a tropical garden, we thought, why not create a web page to share our tropical fruits and share with you some recipes with them?</p>
-      <p>So, on this website, we show you our tropical Garden, located in Paul Do Mar (Meu pé de Cacau). You could see our fruits and the diversity of recipes that we usually do with our fruits.</p>
-       <tbody>
-        <tr v-for="recipe in recipes">
-          <td><a v-bind:href="title">{{recipe.title}}</a></td>
-        </tr>
-      </tbody>
+  <div class="card">
+    <p>TropLand, Tropical Fruits on a Tropical Island.</p>
+    <p>Living in Madeira Island, and as we have  a tropical garden, we thought, why not create a web page to share our tropical fruits and share with you some recipes with them?</p>
+    <p>So, on this website, we show you our tropical Garden, located in Paul Do Mar (Meu pé de Cacau). You could see our fruits and the diversity of recipes that we usually do with our fruits.</p>
   </div>
   <footer class="footer">
     <h5>TropLand, 2022 &copy;</h5>
@@ -19,19 +14,16 @@
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
 
-export default {
-  name: 'HomeView',
-  components: {
-    HelloWorld
+  import HelloWorld from '@/components/HelloWorld.vue'
+
+  export default {
+    name: 'HomeView',
+    components: {
+    }, HelloWorld
   }
-}
-
-let recipes = db.ref('projetoandreia-24413-default-rtdb')
-
 </script>
+
 <style >
  .img1{
     background-image: url("/Users/andreiasantos/Projects/projeto-andreiaVue/src/assets/20210911_111846.jpg");
