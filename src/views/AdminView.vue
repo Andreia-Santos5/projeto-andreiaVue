@@ -62,11 +62,6 @@ export default{
       );
       this.$router.push('/recipes')
     },
-    /*async created(){
-      const response=await axios.get("https://projetoandreia-24413-default-rtdb.firebaseio.com/.json",
-      this.recipeText=response.data);
-      this.$router.push('/')
-    },*/
   },
 }
 </script>
